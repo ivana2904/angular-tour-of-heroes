@@ -1,22 +1,49 @@
 <h2>My Heroes</h2>
 <div class="main-container">
+  <div class="cont-add-hero">
+    <input id="new-hero" #heroName />
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button
+      type="button"
+      class="add-button"
+      (click)="add(heroName.value); heroName.value = ''"
+    >
+      Add hero
+    </button>
+  </div>
+  <app-hero-search></app-hero-search>
+  <div>
+    <label for="new-hero">Hero name: </label>
+  </div>
   <ul class="heroes">
     <li *ngFor="let hero of heroes">
       <a routerLink="/heroes/detail/{{ hero.name }}">
         <span class="badge">{{ hero.id }}</span>
         {{ hero.name }}
       </a>
+      <button
+        type="button"
+        class="delete"
+        title="delete hero"
+        (click)="delete(hero)"
+      >
+        x
+      </button>
     </li>
   </ul>
-  <!--<div>
+</div>
+
+<!-- <a routerLink="/heroes/detail/{{ hero.id }}">
+        <span class="badge">{{ hero.id }}</span>
+        {{ hero.name }}
+      </a> -->
+<!--<div>
        <app-hero-detail [hero]="selectedHero"></app-hero-detail>
     </div> -->
-  <!--
+<!--
     <label for="name">Hero name: </label>
     <input type="text" id="name" [(ngModel)]="hero.name" placeholder="name" />
    -->
-</div>
-
 <!-- 
         <button
         type="button"

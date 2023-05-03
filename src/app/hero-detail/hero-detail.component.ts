@@ -21,10 +21,20 @@ export class HeroDetailComponent {
     this.getHero();
   }
   getHero(): void {
+    // const id = Number(this.route.snapshot.paramMap.get('id'));
     const name = String(this.route.snapshot.paramMap.get('name'));
-    this.heroService.getHero(name).subscribe((hero) => (this.hero = hero));
+    // this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
+    this.heroService
+      .getHeroByName(name)
+      .subscribe((hero) => (this.hero = hero[0]));
   }
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    }
   }
 }
