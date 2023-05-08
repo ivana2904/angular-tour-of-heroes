@@ -13,10 +13,10 @@
   align-self: center;
 }
 
-// .heroes-container {
-
-//   align-self: center;
-// }
+input#new-hero {
+  height: 32px;
+  margin-right: 15px;
+}
 
 .heroes {
   list-style-type: none;
@@ -141,7 +141,3 @@ button.delete:hover {
   background-color: #525252;
   color: white;
 }
-
-// .heroes .name {
-//   align-self: center;
-// }

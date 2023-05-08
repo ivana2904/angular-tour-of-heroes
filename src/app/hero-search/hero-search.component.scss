@@ -6,7 +6,6 @@ label {
   font-size: 1.2rem;
   margin-top: 1rem;
   margin-bottom: .5rem;
-
 }
 
 input {
@@ -15,6 +14,7 @@ input {
   max-width: 600px;
   box-sizing: border-box;
   display: block;
+  margin: auto;
 }
 
 input:focus {
