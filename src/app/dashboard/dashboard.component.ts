@@ -8,10 +8,11 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  heroes: Hero[] = [];
+
   constructor(
     private heroService: HeroService // private messageService: MessageService
   ) {}
-  heroes: Hero[] = [];
   getHeroes(): void {
     this.heroService
       .getHeroes()

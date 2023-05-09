@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-// import { HEROES } from '../mock-heroes';
 import { HeroService } from '../hero.service';
-// import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -10,11 +8,9 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.scss'],
 })
 export class HeroesComponent implements OnInit {
-  constructor(
-    private heroService: HeroService // private messageService: MessageService
-  ) {}
-
   heroes: Hero[] = [];
+
+  constructor(private heroService: HeroService) {}
 
   ngOnInit(): void {
     this.getHeroes();
@@ -37,14 +33,3 @@ export class HeroesComponent implements OnInit {
     this.heroService.deleteHero(hero.id).subscribe();
   }
 }
-
-// heroes = HEROES;
-// selectedHero?: Hero;
-
-// onSelect(hero: Hero): void {
-//   this.selectedHero = hero;
-//   this.messageService.add(`You clicked on ${hero.name.toUpperCase()}.`);
-// }
-// getHeroes(): void {
-//   this.heroes = this.heroService.getHeroes();
-// }

@@ -10,12 +10,13 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./hero-detail.component.scss'],
 })
 export class HeroDetailComponent {
+  @Input() hero?: Hero;
+
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location
   ) {}
-  @Input() hero?: Hero;
 
   ngOnInit(): void {
     this.getHero();
